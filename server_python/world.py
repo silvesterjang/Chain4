@@ -1,9 +1,16 @@
+import random
+
 class World(object):
 	def __init__(self, row = 16, col = 16):
 		self.map = [[0 for i in xrange(col)] for j in xrange(row)]
 		self.row = row
 		self.col = col
 	
+	def initial(self, times):
+		for i in range(times):
+			select = random.randrange(0,16)
+			self.put(select, 3)
+
 	def put(self, row, player):
 		result = False #If this value returns, winner function calculate (player, false) returns
 		col = 987654321 # INF
@@ -56,7 +63,7 @@ class World(object):
 		for i in range(map_rows):
 			for j in range(map_cols):
 				player = self.map[i][j]
-				if player != 0:
+				if player != 0 and player != 3:
 					for direction in range(4):
 						result.append(subproblem(player,i,j,3,direction))
 

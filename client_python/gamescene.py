@@ -8,20 +8,20 @@ class Gamescene(object):
 		self.row = world.row
 		self.col = world.col
 		self.screen = pygame.display.set_mode((self.row * scale, self.col * scale))
-		self.colors = [(0,0,0),(0xff,0,0),(0,0,0xff),(0x20,0x20,0x20)]
+		self.colors = [(0,0,0),(0xff,0,0),(0,0,0xff),(0,0xff,0),(0x20,0x20,0x20)]
 		
 		background = pygame.Surface(self.screen.get_size())
 		background = background.convert()
 		background.fill(self.colors[0])
 
 		for i in xrange(1,self.row):
-			pygame.draw.line(background, self.colors[3], (i*scale,0), (i*scale,self.col*scale))
+			pygame.draw.line(background, self.colors[4], (i*scale,0), (i*scale,self.col*scale))
 
 		for j in xrange(1,self.col):
-			pygame.draw.line(background, self.colors[3], (0,j*scale), (self.row*scale, j*scale))
+			pygame.draw.line(background, self.colors[4], (0,j*scale), (self.row*scale, j*scale))
 
 		self.screen.blit(background, (0,0))
-		self.set_caption("Chain Chain 4")
+		self.set_caption("Chain 4")
 		pygame.display.flip()
 
 	def set_caption(self, text):

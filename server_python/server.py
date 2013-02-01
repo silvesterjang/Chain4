@@ -10,6 +10,8 @@ class Server(object):
 
 	def world(self, world):
 		self.world = world
+		#Random map
+		#self.world.initial(10)
 	
 	def listen(self):
 		self.conn1, addr1 = self.server.accept()
@@ -53,6 +55,7 @@ class Server(object):
 		player2UsedHisHerChance = False
 
 		player = 0
+
 		for turn in xrange(maxturn):
 			print "---------Status----------"
 			print "%d turn : Player %d do something" %(turn + 1, ((turn % 2) + 1))
@@ -154,7 +157,7 @@ class Server(object):
 					player2UsedHisHerChance = True
 			
 			if gamescene != None:
-				gamescene.set_caption("Chain Chain 4 (%s vs. %s) - Turn: %d" % (self.name1, self.name2, turn+1))
+				gamescene.set_caption("Chain 4 (%s vs. %s) - Turn: %d" % (self.name1, self.name2, turn+1))
 				gamescene.update()
 
 			result = self.world.winner()

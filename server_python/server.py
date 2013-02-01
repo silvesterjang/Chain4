@@ -109,7 +109,7 @@ class Server(object):
 					# Check
 					select_row1 = int(recvdata[1])
 					select_row2 = int(recvdata[2])
-					if self.world.map[select_row1][self.world.col - 1] != 0 or self.world.map[select_row2][self.world.map.col - 1] != 0: # each row is already full.
+					if self.world.map[select_row1][self.world.col - 1] != 0 or self.world.map[select_row2][self.world.col - 1] != 0: # each row is already full.
 						self.player2win()
 					self.world.put(select_row1, player)
 					self.world.put(select_row2, player)
@@ -149,7 +149,7 @@ class Server(object):
 					# Check
 					select_row1 = int(recvdata[1])
 					select_row2 = int(recvdata[2])
-					if self.world.map[select_row1][self.world.col - 1] != 0 or self.world.map[select_row2][self.world.map.col - 1] != 0: # each row is already full.
+					if self.world.map[select_row1][self.world.col - 1] != 0 or self.world.map[select_row2][self.world.col - 1] != 0: # each row is already full.
 						self.player2win()
 					self.world.put(select_row1, player)
 					self.world.put(select_row2, player)

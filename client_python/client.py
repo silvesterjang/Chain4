@@ -42,7 +42,6 @@ class Client(object):
 			print self.ai.map
 			print "*" * 20
 			response = self.ai.think()
-			time.sleep(1)
 			self.conn.send(response)
 			if viewflag:
 				gamescene.update()

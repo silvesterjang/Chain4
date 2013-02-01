@@ -43,7 +43,7 @@ class Server(object):
 	def player1win(self):
 		self.conn1.send("WIN\n")
 		self.conn2.send("LOSE\n")
-
+	
 	def player2win(self):
 		self.conn1.send("LOSE\n")
 		self.conn2.send("WIN\n")
@@ -79,7 +79,14 @@ class Server(object):
 			if turn % 2 == 0 : # even turn -> Player 1
 				player = 1
 				self.conn1.send(str(turn)+" "+mapinfo+"\n")
+				time.sleep(1)
+				# time check
+				start = time.time()
 				recvdata = self.conn1.recv(1024).strip().split(" ")
+				end = time.time()
+				print "Time consumed : ", end - start
+				if end-start >= 3.0:
+					self.player2win()
 
 				# User request
 				if recvdata[0] == "PASS":
@@ -119,7 +126,15 @@ class Server(object):
 			else : # odd turn -> Player 2
 				player = 2
 				self.conn2.send(str(turn)+" "+mapinfo+"\n")
+				time.sleep(1)				
+
+				# time check
+				start = time.time()
 				recvdata = self.conn2.recv(1024).strip().split(" ")
+				end = time.time()
+				print "Time consumed : ", end-start
+				if end-start >= 3.0:
+					self.player1win()
 
 				# User request
 				if recvdata[0] == "PASS":

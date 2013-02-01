@@ -8,7 +8,7 @@ class Gamescene(object):
 		self.row = world.row
 		self.col = world.col
 		self.screen = pygame.display.set_mode((self.row * scale, self.col * scale))
-		self.colors = [(0,0,0),(0xff,0,0),(0,0,0xff),(0,0xff,0),(0x20,0x20,0x20)]
+		self.colors = [(0,0,0),(0xff,0,0),(0,0,0xff),(0xff,0xff,0xff),(0x20,0x20,0x20)]
 		
 		background = pygame.Surface(self.screen.get_size())
 		background = background.convert()

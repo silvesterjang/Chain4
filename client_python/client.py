@@ -37,6 +37,10 @@ class Client(object):
 				break
 			recvdata = recvdata.strip().split(" ")
 			self.ai.update(recvdata[1])
+			print "*" * 20
+			print "ai.map update : "
+			print self.ai.map
+			print "*" * 20
 			response = self.ai.think()
 			time.sleep(1)
 			self.conn.send(response)

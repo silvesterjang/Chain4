@@ -8,7 +8,7 @@ class Gamescene(object):
 		self.row = world.row
 		self.col = world.col
 		self.screen = pygame.display.set_mode((self.row * scale, self.col * scale))
-		self.colors = [(0,0,0),(0xff,0,0),(0,0,0xff),(0,0xff,0),(0x20,0x20,0x20)]
+		self.colors = [(0,0,0),(0xff,0,0),(0,0,0xff),(0xff,0xff,0xff),(0x20,0x20,0x20)]
 		
 		background = pygame.Surface(self.screen.get_size())
 		background = background.convert()
@@ -28,8 +28,15 @@ class Gamescene(object):
 		pygame.display.set_caption(text)
 	
 	def update(self):
+		"""
 		for y in xrange(self.col):
 			for x in xrange(self.row):
 				player = self.colors[self.world.map[y][x]]
 				pygame.draw.rect(self.screen, player, (x*self.scale+1,y*self.scale+1,self.scale-1,self.scale-1))
+		pygame.display.flip()
+		"""
+		for row in xrange(self.row):
+			for col in xrange(self.col):
+				player = self.colors[self.world.map[row][col]]
+				pygame.draw.rect(self.screen,player,(row*self.scale+1,(self.col-col-1)*self.scale+1 ,self.scale-1,self.scale-1))
 		pygame.display.flip()

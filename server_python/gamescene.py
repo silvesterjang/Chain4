@@ -40,3 +40,4 @@ class Gamescene(object):
 				player = self.colors[self.world.map[row][col]]
 				pygame.draw.rect(self.screen,player,(row*self.scale+1,(self.col-col-1)*self.scale+1 ,self.scale-1,self.scale-1))
 		pygame.display.flip()
+		pygame.event.pump()

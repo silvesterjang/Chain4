@@ -63,7 +63,7 @@ class World(object):
 		for i in range(map_rows):
 			for j in range(map_cols):
 				player = self.map[i][j]
-				if player != 0 and player != 3:
+				if 1 <= player <= 2 :
 					for direction in range(4):
 						result.append(subproblem(player,i,j,3,direction))
 

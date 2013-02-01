@@ -11,7 +11,7 @@ class Server(object):
 	def world(self, world):
 		self.world = world
 		#Random map
-		#self.world.initial(10)
+		self.world.initial(10)
 	
 	def listen(self):
 		self.conn1, addr1 = self.server.accept()

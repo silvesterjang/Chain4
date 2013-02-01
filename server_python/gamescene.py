@@ -28,8 +28,15 @@ class Gamescene(object):
 		pygame.display.set_caption(text)
 	
 	def update(self):
+		"""
 		for y in xrange(self.col):
 			for x in xrange(self.row):
 				player = self.colors[self.world.map[y][x]]
 				pygame.draw.rect(self.screen, player, (x*self.scale+1,y*self.scale+1,self.scale-1,self.scale-1))
+		pygame.display.flip()
+		"""
+		for row in xrange(self.row):
+			for col in xrange(self.col):
+				player = self.colors[self.world.map[row][col]]
+				pygame.draw.rect(self.screen,player,(row*self.scale+1,(self.col-col-1)*self.scale+1 ,self.scale-1,self.scale-1))
 		pygame.display.flip()

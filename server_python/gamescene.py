@@ -38,6 +38,6 @@ class Gamescene(object):
 		for row in xrange(self.row):
 			for col in xrange(self.col):
 				player = self.colors[self.world.map[row][col]]
-				pygame.draw.rect(self.screen,player,(row*self.scale+1,(self.col-col-1)*self.scale+1 ,self.scale-1,self.scale-1))
+				pygame.draw.rect(self.screen,player,(row*self.scale+4,(self.col-col-1)*self.scale+4 ,self.scale-8,self.scale-8))
 		pygame.display.flip()
 		pygame.event.pump()

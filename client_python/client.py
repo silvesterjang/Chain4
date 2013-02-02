@@ -32,15 +32,11 @@ class Client(object):
 			gamescene = Gamescene(self.ai)
 		while True:
 			recvdata = self.conn.recv(4096)
-			if recvdata in ["WIN\n", "DRAW\n", "LOSE\n"]: 
-				print "Result:", recvdata				
+			recvdata = recvdata.strip().split(' ')
+			if recvdata[0] in ["WIN", "DRAW", "LOSE"]: 
+				print "Result: %s" %(recvdata[0])
 				break
-			recvdata = recvdata.strip().split(" ")
 			self.ai.update(recvdata[1])
-			print "*" * 20
-			print "ai.map update : "
-			print self.ai.map
-			print "*" * 20
 			response = self.ai.think()
 			self.conn.send(response)
 			if viewflag:

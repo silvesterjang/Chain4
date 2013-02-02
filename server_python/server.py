@@ -53,7 +53,8 @@ class Server(object):
 		player2chance = 2
 		player1UsedHisHerChance = False
 		player2UsedHisHerChance = False
-
+		
+		wait_time = 0.3
 		player = 0
 
 		for turn in xrange(maxturn):
@@ -79,7 +80,7 @@ class Server(object):
 			if turn % 2 == 0 : # even turn -> Player 1
 				player = 1
 				self.conn1.send(str(turn)+" "+mapinfo+"\n")
-				time.sleep(1)
+				time.sleep(wait_time)
 				# time check
 				start = time.time()
 				recvdata = self.conn1.recv(1024).strip().split(" ")
@@ -126,7 +127,7 @@ class Server(object):
 			else : # odd turn -> Player 2
 				player = 2
 				self.conn2.send(str(turn)+" "+mapinfo+"\n")
-				time.sleep(1)				
+				time.sleep(wait_time)				
 
 				# time check
 				start = time.time()

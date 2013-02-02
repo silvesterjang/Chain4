@@ -182,9 +182,11 @@ class Server(object):
 			if result == 1:
 				self.player1win()
 				print "RED WIN"
+				break
 			elif result == 2:
 				self.player2win()
 				print "BLUE WIN"
+				break
 			else:
 				print "KEEP GOING"
 
